@@ -1,0 +1,21 @@
+<% include header %>
+<div ng-app ng-init="dnug=['adam', 'bob', 'carl', 'cathy', 'dean']">
+
+    <input type="text" placeholder="filter" ng-model="filterMembers" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="member in dnug | filter:filterMembers">
+                <td>{{ member }}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<% include footer %>
