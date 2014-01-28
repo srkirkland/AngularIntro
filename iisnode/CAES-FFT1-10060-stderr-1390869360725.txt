@@ -1,0 +1,22 @@
+Error: Failed to lookup view "home" in views directory "C:\Users\kirkland\Documents\My Web Sites\angular-intro/views"
+    at Function.app.render (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\application.js:493:17)
+    at ServerResponse.res.render (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\response.js:798:7)
+    at C:\Users\kirkland\Documents\My Web Sites\angular-intro\server.js:13:9
+    at callbacks (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:164:37)
+    at param (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:138:11)
+    at pass (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:145:5)
+    at Router._dispatch (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:173:5)
+    at Object.router (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:33:10)
+    at next (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\node_modules\connect\lib\proto.js:193:15)
+    at Object.favicon [as handle] (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\node_modules\connect\lib\middleware\favicon.js:77:7)
+Error: Failed to lookup view "home" in views directory "C:\Users\kirkland\Documents\My Web Sites\angular-intro/views"
+    at Function.app.render (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\application.js:493:17)
+    at ServerResponse.res.render (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\response.js:798:7)
+    at C:\Users\kirkland\Documents\My Web Sites\angular-intro\server.js:13:9
+    at callbacks (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:164:37)
+    at param (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:138:11)
+    at pass (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:145:5)
+    at Router._dispatch (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:173:5)
+    at Object.router (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\lib\router\index.js:33:10)
+    at next (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\node_modules\connect\lib\proto.js:193:15)
+    at Object.favicon [as handle] (C:\Users\kirkland\Documents\My Web Sites\angular-intro\node_modules\express\node_modules\connect\lib\middleware\favicon.js:77:7)

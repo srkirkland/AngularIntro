@@ -3,11 +3,11 @@ var express = require('express'),
 
     app = express();
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('views', __dirname + '/views');
-app.set('view engine', 'handlebars');
+app.engine('.html', exphbs({defaultLayout: 'main', extname: '.html'}));
+app.set('view engine', '.html');
 
-app.use(express.favicon());
+//app.use(express.favicon());
   
 app.get('/', function (req, res) {
     res.render('home');

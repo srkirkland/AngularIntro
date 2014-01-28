@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"CAES-FFT1-10060-stderr-1390869360725.txt","computername":"CAES-FFT1","pid":10060,"type":"stderr","created":1390869360725},{"file":"CAES-FFT1-10144-stderr-1390869623898.txt","computername":"CAES-FFT1","pid":10144,"type":"stderr","created":1390869623898},{"file":"CAES-FFT1-10256-stderr-1390869291454.txt","computername":"CAES-FFT1","pid":10256,"type":"stderr","created":1390869291454},{"file":"CAES-FFT1-11144-stderr-1390869652840.txt","computername":"CAES-FFT1","pid":11144,"type":"stderr","created":1390869652840},{"file":"CAES-FFT1-11304-stderr-1390869407773.txt","computername":"CAES-FFT1","pid":11304,"type":"stderr","created":1390869407773},{"file":"CAES-FFT1-11976-stderr-1390869754987.txt","computername":"CAES-FFT1","pid":11976,"type":"stderr","created":1390869754987},{"file":"CAES-FFT1-6848-stderr-1390869726197.txt","computername":"CAES-FFT1","pid":6848,"type":"stderr","created":1390869726197},{"file":"CAES-FFT1-8504-stderr-1390869618333.txt","computername":"CAES-FFT1","pid":8504,"type":"stderr","created":1390869618333},{"file":"CAES-FFT1-8860-stderr-1390869836884.txt","computername":"CAES-FFT1","pid":8860,"type":"stderr","created":1390869836884},{"file":"CAES-FFT1-912-stderr-1390869313243.txt","computername":"CAES-FFT1","pid":912,"type":"stderr","created":1390869313243},{"file":"CAES-FFT1-9604-stderr-1390869922729.txt","computername":"CAES-FFT1","pid":9604,"type":"stderr","created":1390869922729},{"file":"CAES-FFT1-9708-stderr-1390869747445.txt","computername":"CAES-FFT1","pid":9708,"type":"stderr","created":1390869747445}];
+        var lastUpdated = 1390869922933;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>
