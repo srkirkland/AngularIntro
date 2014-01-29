@@ -18,4 +18,8 @@ app.get('/controller', function (req, res) {
     res.render('controller.ejs');
 });
 
+app.get('/interactive', function (req, res) {
+    res.render('interactive.ejs');
+});
+
 app.listen(process.env.PORT || 3000);

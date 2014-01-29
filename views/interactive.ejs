@@ -1,0 +1,68 @@
+<% include header %>
+
+<script>
+    angular.module("DNUG", [])
+
+    .controller("MemberController", function ($scope) {
+        $scope.Members = [{ name: 'adam', email: 'adam@ucdavis.edu' }
+            , { name: 'bob', email: 'bob@ucdavis.edu' }
+            , { name: 'carl', email: 'zcarl@ucdavis.edu' }
+            , { name: 'cathy', email: 'cathy@ucdavis.edu' }
+            , { name: 'dean', email: 'dean@ucdavis.edu'}];
+        
+        $scope.remove = function (member) {
+            var index = $scope.Members.indexOf(member);
+            $scope.Members.splice(index, 1);
+        };
+
+        $scope.add = function () {
+            var newMember = { name: $scope.nameText, email: $scope.emailText };
+            $scope.Members.push(newMember);
+            
+            $scope.nameText = '';
+            $scope.emailText = '';
+        };
+    });
+</script>
+
+<div ng-app="DNUG">
+    <div ng-controller="MemberController">
+    <input type="text" placeholder="filter" ng-model="filterMembers" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="member in Members | filter:filterMembers | orderBy: 'email'">
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+                <td><button class="btn btn-danger" ng-click="remove(member)">Remove</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form class="form" ng-submit="add()">
+        <fieldset>
+            <legend>Add New Member</legend>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" required ng-model="nameText" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" required ng-model="emailText" />
+            </div>
+        </fieldset>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add!</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+<% include footer %>
