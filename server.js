@@ -33,4 +33,12 @@ app.get('/spa', function (req, res) {
     res.render('spa.ejs');
 });
 
+app.get('/api/members', function (req, res) {
+    res.send([{ name: 'adam', email: 'adam@ucdavis.edu' }
+        , { name: 'bob', email: 'bob@ucdavis.edu' }
+        , { name: 'carl', email: 'zcarl@ucdavis.edu' }
+        , { name: 'cathy', email: 'cathy@ucdavis.edu' }
+        , { name: 'dean', email: 'dean@ucdavis.edu'}]);
+});
+
 app.listen(process.env.PORT || 3000);
