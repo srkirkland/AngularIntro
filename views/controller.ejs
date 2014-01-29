@@ -1,0 +1,37 @@
+<% include header %>
+
+<script>
+    angular.module("DNUG", [])
+
+    .controller("MemberController", function ($scope) {
+        $scope.Members = [{ name: 'adam', email: 'adam@ucdavis.edu' }
+            , { name: 'bob', email: 'bob@ucdavis.edu' }
+            , { name: 'carl', email: 'zcarl@ucdavis.edu' }
+            , { name: 'cathy', email: 'cathy@ucdavis.edu' }
+            , { name: 'dean', email: 'dean@ucdavis.edu'}];
+        $scope.filterMembers = '';
+    });
+</script>
+
+<div ng-app="DNUG">
+    <div ng-controller="MemberController">
+    <input type="text" placeholder="filter" ng-model="filterMembers" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="member in Members | filter:filterMembers | orderBy: 'email'">
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<% include footer %>

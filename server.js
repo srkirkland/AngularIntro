@@ -14,4 +14,8 @@ app.get('/list', function (req, res) {
     res.render('list.ejs');
 });
 
+app.get('/controller', function (req, res) {
+    res.render('controller.ejs');
+});
+
 app.listen(process.env.PORT || 3000);
