@@ -38,7 +38,8 @@ app.get('/api/members', function (req, res) {
         , { name: 'bob', email: 'bob@ucdavis.edu' }
         , { name: 'carl', email: 'zcarl@ucdavis.edu' }
         , { name: 'cathy', email: 'cathy@ucdavis.edu' }
-        , { name: 'dean', email: 'dean@ucdavis.edu'}]);
+        , { name: 'dean', email: 'dean@ucdavis.edu'}
+        , { name: 'elias', email: 'elias@ucdavis.edu'}]);
 });
 
 app.listen(process.env.PORT || 3000);

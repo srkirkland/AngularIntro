@@ -13,11 +13,11 @@
         $routeProvider
         .when('/', {
             controller: 'MemberController',
-            templateUrl: 'spa/list.html'
+            templateUrl: '/spa/list.html'
         })
         .when('/new', {
             controller: 'MemberController',
-            templateUrl: 'spa/create.html'
+            templateUrl: '/spa/create.html'
         })
         .otherwise({
             redirectTo: '/'
