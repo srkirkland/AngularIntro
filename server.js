@@ -1,7 +1,10 @@
 var express = require('express'),
+    path = require('path');
 
     app = express();
   
+app.use(express.static( path.join(__dirname, 'public'), { maxAge: 864000000 } ));
+
 app.get('/', function (req, res) {
     res.render('home.ejs');
 });
@@ -20,6 +23,10 @@ app.get('/controller', function (req, res) {
 
 app.get('/interactive', function (req, res) {
     res.render('interactive.ejs');
+});
+
+app.get('/spa', function (req, res) {
+    res.render('spa.ejs');
 });
 
 app.listen(process.env.PORT || 3000);

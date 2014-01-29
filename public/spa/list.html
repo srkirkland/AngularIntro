@@ -1,0 +1,19 @@
+<input type="text" placeholder="filter" ng-model="filterMembers" />
+<a href="#/new" class="pull-right">Add Member</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="member in Members | filter:filterMembers | orderBy: 'email'">
+            <td>{{ member.name }}</td>
+            <td>{{ member.email }}</td>
+            <td><button class="btn btn-danger" ng-click="remove(member)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>

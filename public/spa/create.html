@@ -1,0 +1,16 @@
+<form class="form" ng-submit="add()">
+    <fieldset>
+        <legend>Add New Member</legend>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" required ng-model="nameText" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" required ng-model="emailText" />
+        </div>
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Add!</button>
+    </div>
+</form>

@@ -1,0 +1,52 @@
+<% include header %>
+
+<script>
+    var members = [{ name: 'adam', email: 'adam@ucdavis.edu' }
+            , { name: 'bob', email: 'bob@ucdavis.edu' }
+            , { name: 'carl', email: 'zcarl@ucdavis.edu' }
+            , { name: 'cathy', email: 'cathy@ucdavis.edu' }
+            , { name: 'dean', email: 'dean@ucdavis.edu'}];
+
+    angular.module("DNUG", ["ngRoute"])
+
+    .config(function ($routeProvider) {
+        $routeProvider
+        .when('/', {
+            controller: 'MemberController',
+            templateUrl: 'spa/list.html'
+        })
+        .when('/new', {
+            controller: 'MemberController',
+            templateUrl: 'spa/create.html'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+    })
+
+    .controller("MemberController", function ($scope, $location) {
+        $scope.Members = members;
+
+        $scope.remove = function (member) {
+            var index = $scope.Members.indexOf(member);
+            $scope.Members.splice(index, 1);
+        };
+
+        $scope.add = function () {
+            var newMember = { name: $scope.nameText, email: $scope.emailText };
+            $scope.Members.push(newMember);
+
+            $scope.nameText = '';
+            $scope.emailText = '';
+            $location.path('/');
+        };
+    });
+</script>
+
+<div ng-app="DNUG">
+    <div ng-controller="MemberController">
+        <div ng-view></div>
+    </div>
+</div>
+
+<% include footer %>
