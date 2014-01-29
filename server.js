@@ -25,6 +25,10 @@ app.get('/interactive', function (req, res) {
     res.render('interactive.ejs');
 });
 
+app.get('/factory', function (req, res) {
+    res.render('factory.ejs');
+});
+
 app.get('/spa', function (req, res) {
     res.render('spa.ejs');
 });
