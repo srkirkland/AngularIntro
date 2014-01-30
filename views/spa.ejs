@@ -33,11 +33,10 @@
         };
 
         $scope.add = function () {
-            var newMember = { name: $scope.nameText, email: $scope.emailText };
+            var newMember = { name: $scope.createMember.name, email: $scope.createMember.email };
             $scope.Members.push(newMember);
 
-            $scope.nameText = '';
-            $scope.emailText = '';
+            $scope.createMember = {};
             $location.path('/');
         };
     });

@@ -16,11 +16,10 @@
         };
 
         $scope.add = function () {
-            var newMember = { name: $scope.nameText, email: $scope.emailText };
+            var newMember = { name: $scope.createMember.name, email: $scope.createMember.email };
             $scope.Members.push(newMember);
             
-            $scope.nameText = '';
-            $scope.emailText = '';
+            $scope.createMember = {};
         };
     });
 </script>
@@ -51,11 +50,11 @@
             <legend>Add New Member</legend>
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" required ng-model="nameText" />
+                <input type="text" class="form-control" required ng-model="createMember.name" />
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" required ng-model="emailText" />
+                <input type="text" class="form-control" required ng-model="createMember.email" />
             </div>
         </fieldset>
         <div class="form-actions">
