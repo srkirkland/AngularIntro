@@ -9,6 +9,18 @@
             , { name: 'carl', email: 'zcarl@ucdavis.edu' }
             , { name: 'cathy', email: 'cathy@ucdavis.edu' }
             , { name: 'dean', email: 'dean@ucdavis.edu'}];
+        
+        $scope.remove = function (member) {
+            var index = $scope.Members.indexOf(member);
+            $scope.Members.splice(index, 1);
+        };
+
+        $scope.add = function () {
+            var newMember = { name: $scope.createMember.name, email: $scope.createMember.email };
+            $scope.Members.push(newMember);
+            
+            $scope.createMember = {};
+        };
     });
 </script>
 
@@ -28,12 +40,12 @@
             <tr ng-repeat="member in Members | filter:filterMembers | orderBy: 'email'">
                 <td>{{ member.name }}</td>
                 <td>{{ member.email }}</td>
-                <td><button class="btn btn-danger">Remove</button></td>
+                <td><button class="btn btn-danger" ng-click="remove(member)">Remove</button></td>
             </tr>
         </tbody>
     </table>
 
-    <form class="form">
+    <form class="form" ng-submit="add()">
         <fieldset>
             <legend>Add New Member</legend>
             <div class="form-group">

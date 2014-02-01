@@ -9,6 +9,21 @@
 
     angular.module("DNUG", ["ngRoute"])
 
+    .config(function ($routeProvider) {
+        $routeProvider
+        .when('/', {
+            controller: 'MemberController',
+            templateUrl: '/spa/list.html'
+        })
+        .when('/new', {
+            controller: 'MemberController',
+            templateUrl: '/spa/create.html'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+    })
+
     .controller("MemberController", function ($scope, $location) {
         $scope.Members = members;
 
@@ -22,7 +37,7 @@
             $scope.Members.push(newMember);
 
             $scope.createMember = {};
-//            $location.path('/');
+            $location.path('/');
         };
     });
 </script>

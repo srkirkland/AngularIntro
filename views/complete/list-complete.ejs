@@ -1,5 +1,5 @@
 <% include header %>
-<div ng-app>
+<div ng-app ng-init="dnug=['adam', 'bob', 'carl', 'cathy', 'dean']">
 
     <input type="text" placeholder="filter" ng-model="filterMembers" />
 
@@ -11,8 +11,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>MemberNameHere</td>
+            <tr ng-repeat="member in dnug | filter:filterMembers">
+                <td>{{ member }}</td>
                 <td></td>
             </tr>
         </tbody>

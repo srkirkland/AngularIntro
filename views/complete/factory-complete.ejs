@@ -2,14 +2,26 @@
 
 <script>
     angular.module("DNUG", [])
-    
-    .controller("MemberController", function ($scope) {
-        $scope.Members = [{ name: 'adam', email: 'adam@ucdavis.edu' }
-            , { name: 'bob', email: 'bob@ucdavis.edu' }
-            , { name: 'carl', email: 'zcarl@ucdavis.edu' }
-            , { name: 'cathy', email: 'cathy@ucdavis.edu' }
-            , { name: 'dean', email: 'dean@ucdavis.edu'}];
-        
+    .factory('MemberFactory', function ($http) {
+        return {
+            getMembers: function () {
+                return [{ name: 'adam', email: 'adam@ucdavis.edu' }
+                    , { name: 'bob', email: 'bob@ucdavis.edu' }
+                    , { name: 'carl', email: 'zcarl@ucdavis.edu' }
+                    , { name: 'cathy', email: 'cathy@ucdavis.edu' }
+                    , { name: 'dean', email: 'dean@ucdavis.edu'}];
+            },
+            getMembersAjax: function () {
+                return $http.get("/api/members");
+            }
+        }
+    })
+    .controller("MemberController", function ($scope, MemberFactory) {
+        //$scope.Members = MemberFactory.getMembers();
+        MemberFactory.getMembersAjax().success(function (members) {
+            $scope.Members = members;
+        });
+
         $scope.remove = function (member) {
             var index = $scope.Members.indexOf(member);
             $scope.Members.splice(index, 1);
@@ -20,6 +32,7 @@
             $scope.Members.push(newMember);
 
             $scope.createMember = {};
+            $location.path('/');
         };
     });
 </script>

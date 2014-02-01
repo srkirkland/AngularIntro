@@ -6,7 +6,7 @@
     .controller("MemberController", function ($scope) {
         $scope.Members = [{ name: 'adam', email: 'adam@ucdavis.edu' }
             , { name: 'bob', email: 'bob@ucdavis.edu' }
-            , { name: 'carl', email: 'zcarl@ucdavis.edu' }
+            , { name: 'carl', email: 'carl@ucdavis.edu' }
             , { name: 'cathy', email: 'cathy@ucdavis.edu' }
             , { name: 'dean', email: 'dean@ucdavis.edu'}];
     });
@@ -21,34 +21,15 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="member in Members | filter:filterMembers | orderBy: 'email'">
                 <td>{{ member.name }}</td>
                 <td>{{ member.email }}</td>
-                <td><button class="btn btn-danger">Remove</button></td>
             </tr>
         </tbody>
     </table>
-
-    <form class="form">
-        <fieldset>
-            <legend>Add New Member</legend>
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" required ng-model="createMember.name" />
-            </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" class="form-control" required ng-model="createMember.email" />
-            </div>
-        </fieldset>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Add!</button>
-        </div>
-    </form>
     </div>
 </div>
 
