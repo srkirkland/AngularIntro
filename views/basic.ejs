@@ -1,13 +1,16 @@
 <% include header %>
-<div>
+<div ng-app>
 <div>
     <form>
-        <label>Enter Your Name</label><input type="text" class="form-control" />
+        <label>Enter Your Name</label><input type="text" class="form-control" ng-model="name" />
     </form>
 </div>
 <hr>
 <div class="well">
-    Your name is
+    Your name is {{name}}
+</div>
+<div class="well">
+    Your name is SHOUTED <strong>{{name | uppercase}}</strong>
 </div>
 </div>
 <% include footer %>
